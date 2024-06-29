@@ -19,6 +19,7 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Lifecycle Methods
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
@@ -29,41 +30,40 @@ final class LoginViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard userTextField.text == user, passwordTextField.text == password else {
-            showAlert()
+            showAlert(
+                title: "Check your data",
+                message: "Wrong username or password!"
+            ) { self.passwordTextField.text = ""}
             return false
         }
         return true
     }
-    
+
     // MARK: - IBActions
-    @IBAction func showUserName() {
-        let alert = UIAlertController(title: "Forgot user name?", message: "Your name is: \(user)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK!", style: .cancel, handler: { _ in
-            self.userTextField.text = "" }))
-        present(alert, animated: true)
-    }
-    
-    @IBAction func showPassword() {
-        let alert = UIAlertController(title: "Forgot password?", message: "Your password is: \(password)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK!", style: .cancel, handler: { _ in
-            self.passwordTextField.text = "" }))
-        present(alert, animated: true)
-    }
-    
-    @IBAction func didTaplogInButton() {
+    @IBAction func showData(_ sender: UIButton) {
+        sender.tag == 0 ? showAlert(
+            title: "Forgot User Name?",
+            message: "Username is \(user)"
+        ) : showAlert(
+            title: "Forgot Password?",
+            message: "Your password is \(password)"
+        ) { self.passwordTextField.text = ""}
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        self.passwordTextField.text = ""
-        self.userTextField.text = ""
+        passwordTextField.text = ""
+        userTextField.text = ""
     }
         
     // MARK: - Private Methods
-    private func showAlert() {
-        let alert = UIAlertController(title: "Check your data", message: "Wrong user or password!", preferredStyle: .alert)
+    private func showAlert(title: String, message: String, completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
-            self.passwordTextField.text = ""
-            self.userTextField.text = ""
+            completion?()
         }))
         present(alert, animated: true)
     }
