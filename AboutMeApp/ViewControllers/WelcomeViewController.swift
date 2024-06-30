@@ -14,7 +14,7 @@ final class WelcomeViewController: UIViewController {
     @IBOutlet var personalNameLabel: UILabel!
     
     // MARK: - Properties
-    var userData: User = User(user: "", password: "", id: PersonalInformation())
+    var userData: User!
     let topColor = UIColor(
         red: 0.6,
         green: 0.4,
@@ -39,7 +39,6 @@ final class WelcomeViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func didTapLogOut() {
         self.dismiss(animated: true)
-        
     }
 }
 

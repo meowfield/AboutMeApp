@@ -12,6 +12,6 @@ struct User {
     let id: PersonalInformation
     
     static func showUserInfo() -> User {
-        return User(user: "User", password: "Password", id: PersonalInformation())
+        return User(user: "User", password: "Password", id: PersonalInformation.getPersonalInfo())
     }
 }

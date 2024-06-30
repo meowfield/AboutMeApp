@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		922AB1FD2C31B7A60063EBEB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922AB1FC2C31B7A60063EBEB /* TabBarController.swift */; };
 		92C408692C2CD6F200BADF47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C408682C2CD6F200BADF47 /* AppDelegate.swift */; };
 		92C4086B2C2CD6F200BADF47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C4086A2C2CD6F200BADF47 /* SceneDelegate.swift */; };
 		92C4086D2C2CD6F200BADF47 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C4086C2C2CD6F200BADF47 /* LoginViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		922AB1FC2C31B7A60063EBEB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = AboutMeApp/ViewControllers/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		92C408652C2CD6F200BADF47 /* AboutMeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AboutMeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C408682C2CD6F200BADF47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92C4086A2C2CD6F200BADF47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				92C4086C2C2CD6F200BADF47 /* LoginViewController.swift */,
+				922AB1FC2C31B7A60063EBEB /* TabBarController.swift */,
 				92C4087C2C2DA9CE00BADF47 /* WelcomeViewController.swift */,
 				92C408882C30A5E200BADF47 /* ProfileViewController.swift */,
 				92C4088A2C30A60200BADF47 /* BioViewController.swift */,
@@ -188,6 +191,7 @@
 				92C408852C3066F600BADF47 /* Person.swift in Sources */,
 				92C4086D2C2CD6F200BADF47 /* LoginViewController.swift in Sources */,
 				92C4087D2C2DA9CE00BADF47 /* WelcomeViewController.swift in Sources */,
+				922AB1FD2C31B7A60063EBEB /* TabBarController.swift in Sources */,
 				92C4088B2C30A60200BADF47 /* BioViewController.swift in Sources */,
 				92C408692C2CD6F200BADF47 /* AppDelegate.swift in Sources */,
 				92C408892C30A5E200BADF47 /* ProfileViewController.swift in Sources */,

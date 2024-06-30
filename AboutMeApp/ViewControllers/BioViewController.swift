@@ -13,7 +13,7 @@ final class BioViewController: UIViewController {
     @IBOutlet var bio: UILabel!
 
     // MARK: - Properties
-    var userData: User = User(user: "", password: "", id: PersonalInformation())
+    var userData: User!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {

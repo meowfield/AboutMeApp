@@ -14,7 +14,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     
     // MARK: - Properties
-    let userData = User.showUserInfo()
+    private let userData = User.showUserInfo()
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -29,17 +29,10 @@ final class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let tabBarVC = segue.destination as? UITabBarController
-        tabBarVC?.viewControllers?.forEach { viewController in
-            if let welcomeVC = viewController as? WelcomeViewController {
-                welcomeVC.userData = userData
-            } else if let profileVC = viewController as? ProfileViewController {
-                profileVC.userData = userData
-            } else if let navigationVC = navigationController {
-                let bioVC = navigationVC.topViewController as? BioViewController
-                bioVC?.userData = userData
-            }
+        guard let tabBarController = segue.destination as? TabBarController else {
+            return
         }
+        tabBarController.userData = userData
     }
     
     override func shouldPerformSegue(

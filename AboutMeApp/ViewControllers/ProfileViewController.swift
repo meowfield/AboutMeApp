@@ -17,7 +17,7 @@ final class ProfileViewController: UIViewController {
     @IBOutlet var person: UILabel!
     
     // MARK: - Properties
-    var userData: User = User(user: "", password: "", id: PersonalInformation())
+    var userData: User!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -27,6 +27,13 @@ final class ProfileViewController: UIViewController {
         surname.text = ("Фамилия: \(userData.id.surname)")
         company.text = ("Компания: \(userData.id.company)")
         position.text = ("Должность: \(userData.id.position)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let bioVC = segue.destination as? BioViewController else {
+            return
+        }
+        bioVC.userData = userData
     }
 }
 
