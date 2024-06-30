@@ -39,6 +39,7 @@ final class WelcomeViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func didTapLogOut() {
         self.dismiss(animated: true)
+        
     }
 }
 
