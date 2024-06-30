@@ -8,11 +8,13 @@
 import UIKit
 
 final class WelcomeViewController: UIViewController {
+    
     // MARK: - IBOutlets
     @IBOutlet var welcomeMessageLabel: UILabel!
+    @IBOutlet var personalNameLabel: UILabel!
     
     // MARK: - Properties
-    var user: String!
+    var userData: User = User(user: "", password: "", id: PersonalInformation())
     let topColor = UIColor(
         red: 0.6,
         green: 0.4,
@@ -30,7 +32,8 @@ final class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addVerticalGradientLayer(topColor: topColor, bottomColor: bottomColor)
-        welcomeMessageLabel.text = "Welcome, \(user ?? "")!"
+        welcomeMessageLabel.text = "Welcome, \(userData.user)!"
+        personalNameLabel.text = "My name is \(userData.id.name) \(userData.id.surname)"
     }
     
     // MARK: - IBActions
@@ -39,8 +42,8 @@ final class WelcomeViewController: UIViewController {
     }
 }
 
+// MARK: - Extensions
 extension UIViewController {
-    
     func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
